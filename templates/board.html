@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        {% for row in board %}
+        <tr>
+            {% for cell in row %}
+            <td>{{ cell }}</td>
+            {% endfor %}
+        </tr>
+   
+    {% endfor %}
+    </table>
+    <form id="submit-word">
+        <label for="word">Enter your word:</label>
+        <input type="text" name="word" id="guessed-word">
+        <br>
+        <button type="submit" id="submit-word">Submit!</button>
+    </form>
+
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="http://unpkg.com/axios/dist/axios.js"></script>
+    <script src="{{ url_for('static', filename='boggle.js') }}"></script>
+</body>
+</html>
