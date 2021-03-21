@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <table>
+<body id="body">
+    <table class="game-on">
         {% for row in board %}
         <tr>
             {% for cell in row %}
@@ -18,15 +18,49 @@
    
     {% endfor %}
     </table>
-    <form id="submit-word">
-        <label for="word">Enter your word:</label>
-        <input type="text" name="word" id="guessed-word">
-        <br>
-        <button type="submit" id="submit-word">Submit!</button>
+    <div class="game-on" id="all-guessed-words">
+        <form>
+            <label id="guessed-word-label" for="word">Enter your word:</label>
+            <input type="text" name="word" id="guessed-word">
+            <br>
+            <button type="button" id="submit-word">Submit!</button>
+        </form>
+        <div >
+            <p>Score:</p><p id="score-board"></p>
+        </div>
+        <p class="game-on">Guessed Words:</p>
+        <ul id="guessed-word-list"></ul>
+    </div>
+    
+    <p class="game-on">Timer:</p>
+    <h1 class="game-on" id="timer"></h1>
+    <form class="game-off" id="start-game">
+        <button id="start-game" type="button">Start Game!</button>
     </form>
+    <form action="http://127.0.0.1:5000/" id="new-start-game">
+        <button id="new-start-game" type="submit">Start Game!</button>
+    </form>
+    <br>
+    <form class="game-off" id="submit-timer-form">
+        <label for="submit-timer">Timer Length:</label>
+        <input type="text" name="submit-timer" id="submit-timer">
+    </form>
+    <h1 id="alert-board"></h1>
+    <form>
+        <button type="button" id="submit-score">Submit Score!</button>
+    </form>
+    <br>
+    <div id="high-score-board">
+        <p>High Score:</p><p id="high-score"></p>
+        <p>Games Played:</p><p id="games-played"></p>
+    </div>
 
-    <script src="http://unpkg.com/jquery"></script>
-    <script src="http://unpkg.com/axios/dist/axios.js"></script>
+
+    
+
+
+    <script src="http://127.0.0.1:8887/jquery-3.6.0.js"></script>
+    <script src="http://127.0.0.1:8887/axios.min.js"></script>
     <script src="{{ url_for('static', filename='boggle.js') }}"></script>
 </body>
 </html>
